@@ -1,13 +1,12 @@
 import React from 'react';
 import {Component} from 'react';
-import Section from './Section';
 
-export default class SectionList extends Component {
+export default class HomeworkQuiz extends Component {
   render() {
     return (
       <div>
-        <Section/>
+        HomeworkQuiz
       </div>
-    );
+    )
   }
 }
