@@ -4,6 +4,7 @@ import PaperInfo from '../Components/PaperInfo.js';
 import LogicPuzzle from '../Components/LogicPuzzle.js';
 import SectionAddButton from '../Components/SectionAddButton.js';
 import PaperSubmit from '../Components/PaperSubmit.js';
+import SectionList from '../Components/SectionList.js';
 
 export default class CreatedPaper extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class CreatedPaper extends Component {
         <div className="paper-body">
           <PaperInfo/>
           <LogicPuzzle/>
+          <SectionList/>
           <SectionAddButton/>
           <PaperSubmit/>
         </div>
