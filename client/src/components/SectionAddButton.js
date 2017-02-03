@@ -5,7 +5,6 @@ import '../../style/paper-edit.less';
 export default class SectionAddButton extends Component {
   addSection() {
     const section = {quizzes: [], title: '编程题', type: 'homeworkQuiz'};
-    console.log('-----')
     this.props.handleSectionList(section);
   }
 

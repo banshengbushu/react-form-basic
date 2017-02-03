@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import CreatedPaper from '../components/index';
+import CreatedPaper from '/home/wangdanna/Documents/work/hanjia-test/react-form-basic/client/src/components/index.js';
 
 function mapDispatchToProps(dispatch) {
   return {

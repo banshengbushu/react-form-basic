@@ -2,9 +2,9 @@ import {Component} from 'react';
 import React from 'react';
 import PaperInfo from '../components/PaperInfo.js';
 import LogicPuzzle from '../components/LogicPuzzle.js';
-import SectionAddButton from '/home/wangdanna/Documents/work/hanjia-test/react-form-basic/client/src/containers/sectionAddButton.js';
+import SectionAddButton from '../containers/sectionAddButton.js';
 import PaperSubmit from '../components/PaperSubmit.js';
-import SectionList from '../components/SectionList.js';
+import SectionList from '../containers/SectionList.js';
 import '../../style/index.less'
 
 export default class CreatedPaper extends Component {
@@ -14,9 +14,7 @@ export default class CreatedPaper extends Component {
   }
 
   componentDidMount() {
-
-    console.log(this.props)
-    this.props.initPaperInfo({sections: [{quizzes: [], title: '编程题', type: 'homeworkQuiz'}]});
+    this.props.initPaperInfo({sections: [{quizzes: [], title: '编程题', type: 'LogicPuzzle'}]});
   }
 
   render() {

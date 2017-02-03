@@ -4,8 +4,6 @@ import SectionAddButton from '../components/SectionAddButton';
 function mapDispatchToProps(dispatch) {
   return {
     handleSectionList: (data)=> {
-      console.log('====')
-      console.log(data)
       dispatch({type:'ADD_SECTION', data});
     }
   }

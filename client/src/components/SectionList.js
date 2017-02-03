@@ -4,14 +4,14 @@ import Section from './Section';
 
 export default class SectionList extends Component {
   render() {
-    const sectionLists = this.props.sections || [];
-    const sectionList = sectionLists.map((sectionList,index)=> {
+    const sections = this.props.sections || [];
+    console.log(this.props.sections)
+    const sectionList = sections.map((section,index)=> {
       return(
-        <div>
-          <Section key={index} {...sectionList} />
+        <div key={index}>
+          <Section {...section} />
         </div>
       )
-
     });
     return (
       <div>

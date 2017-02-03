@@ -1,11 +1,8 @@
 import {combineReducers} from 'redux';
-import addSection from './paper-created/addSection';
-import initPaperInfo from './paper-created/initPaperInfo';
-
+import paperCreated from './paper-created';
 
 const rootReducer = combineReducers({
-  addSection,
-  initPaperInfo
+  paperCreated
 });
 
 export default rootReducer;
