@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import paperCreated from './paper-created';
+import paperCreated from './paper-created/index';
+import stacks from './stacks';
 
 const rootReducer = combineReducers({
-  paperCreated
+  paperCreated,
+  stacks
 });
 
 export default rootReducer;

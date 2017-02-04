@@ -5,6 +5,9 @@ function mapDispatchToProps(dispatch) {
   return {
     initPaperInfo: (data)=> {
       dispatch({type:'INIT_PAPER_DATA', data})
+    },
+    initStacks:(data)=>{
+      dispatch({type:'INIT_STACKS',data})
     }
   }
 }

@@ -7,7 +7,7 @@ import {connect, Provider} from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from './reducers/index.js';
-import {Router, Route, browserHistory, withRouter} from 'react-router';
+import {Router, Route, browserHistory} from 'react-router';
 
 const store = createStore(
   rootReducer,
@@ -26,7 +26,7 @@ class Index extends Component {
 
 const mapStateToProps = (state) => state;
 
-let RootApp = connect(mapStateToProps)(withRouter(Index));
+let RootApp = connect(mapStateToProps)(Index);
 
 ReactDom.render(
   <Provider store={store}>

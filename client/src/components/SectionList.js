@@ -5,11 +5,10 @@ import Section from './Section';
 export default class SectionList extends Component {
   render() {
     const sections = this.props.sections || [];
-    console.log(this.props.sections)
-    const sectionList = sections.map((section,index)=> {
-      return(
+    const sectionList = sections.map((section, index)=> {
+      return (
         <div key={index}>
-          <Section {...section} />
+          <Section index={index} {...section} />
         </div>
       )
     });
