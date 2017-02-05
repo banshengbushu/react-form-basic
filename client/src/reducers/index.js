@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
-import paperCreated from './paper-created/index';
+import paperInfo from './paper-created/index';
 import stacks from './stacks';
 
 const rootReducer = combineReducers({
-  paperCreated,
+  paperInfo,
   stacks
 });
 

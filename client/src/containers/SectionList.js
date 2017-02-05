@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import SectionList from '../components/SectionList';
 
-const mapStateToProps = (paperInfo)=> {
+const mapStateToProps = ({paperInfo})=> {
   let sections;
-  if (paperInfo.paperCreated.sections) {
-    sections = paperInfo.paperCreated.sections.filter(section => section.type === 'homeworkQuiz');
+  if (paperInfo.sections) {
+    sections = paperInfo.sections.filter(section => section.type === 'homeworkQuiz');
   }
   return {sections};
 };

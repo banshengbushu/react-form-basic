@@ -11,7 +11,7 @@ export default class HomeworkQuiz extends Component {
   }
 
   componentDidMount() {
-    const {homeworkQuizIndex} = this.props;
+    const homeworkQuizIndex = this.props.homeworkQuizIndex;
     const homeworkName = this.props.stacks.find((item)=>parseInt(homeworkQuizIndex) + 1 === item.stackId).title;
     this.setState({
       homeworkName

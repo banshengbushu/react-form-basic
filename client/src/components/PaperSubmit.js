@@ -11,7 +11,7 @@ export default class PaperSubmit extends Component {
       normal: this.props.normal,
       hard: this.props.hard
     };
-    console.log(paperInfo)
+    console.log('paperInfo')
   }
 
   render() {

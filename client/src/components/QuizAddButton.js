@@ -8,6 +8,7 @@ export default class QuizAddButton extends Component {
     super(props);
     this.state = {
       show: false,
+      selectedId:'',
       homeworkList: [],
       homeworkTypes: [{activeStatus: 'active', title: '全部', stackId: null}]
     }
@@ -69,6 +70,7 @@ export default class QuizAddButton extends Component {
   }
 
   selectHomework(e) {
+
     const selectedId = e.target.value;
     const checked = e.target.checked;
     const homeworkList = this.state.homeworkList.map((item)=> {
@@ -77,11 +79,12 @@ export default class QuizAddButton extends Component {
       });
     });
     this.setState({
-      homeworkList
+      homeworkList,
+      selectedId
     })
   }
 
-  confirmAddHomework(){
+  confirmAddHomework(id){
     this.hideModal();
     let quizzes=[];
     let items = this.state.homeworkList.filter(item=>{
@@ -98,7 +101,8 @@ export default class QuizAddButton extends Component {
 
     this.props.editHomework({
       quizzes,
-      sectionIndex:this.props.sectionIndex
+      sectionIndex:this.props.sectionIndex,
+      selectedId:this.state.selectedId
     })
   }
 

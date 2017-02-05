@@ -3,10 +3,11 @@ import QuizAddButton from '../components/QuizAddButton';
 
 const mapStateToProps = ({paperInfo, stacks}) => {
   let sections;
+  let selectedId;
 
-  // if (paperInfo.sections) {
-  //   sections = paperInfo.sections.filter(section => section.type === 'homeworkQuiz');
-  // }
+  if (paperInfo.sections) {
+    sections = paperInfo.sections.filter(section => section.type === 'homeworkQuiz');
+  }
   return {sections, stacks};
 };
 
