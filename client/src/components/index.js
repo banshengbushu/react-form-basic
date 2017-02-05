@@ -1,9 +1,9 @@
 import {Component} from 'react';
 import React from 'react';
-import PaperInfo from '../components/PaperInfo.js';
-import LogicPuzzle from '../components/LogicPuzzle.js';
+import PaperInfo from '../containers/PaperInfo';
+import LogicPuzzle from '../containers/LogicPuzzle.js';
 import SectionAddButton from '../containers/sectionAddButton.js';
-import PaperSubmit from '../components/PaperSubmit.js';
+import PaperSubmit from '../containers/PaperSubmit.js';
 import SectionList from '../containers/SectionList.js';
 import '../../style/index.less'
 
@@ -15,7 +15,7 @@ export default class CreatedPaper extends Component {
 
   componentDidMount() {
     this.props.initPaperInfo({sections: [{quizzes: [], title: '编程题', type: 'LogicPuzzle'}]});
-    this.props.initStacks({stacks:[{stackId:1,title:'Java'},{stackId:2,title:'JavaScript'}]});
+    this.props.initStacks([{stackId:1,title:'Java'},{stackId:2,title:'JavaScript'}]);
   }
 
   render() {
