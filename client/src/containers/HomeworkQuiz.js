@@ -6,9 +6,12 @@ const mapStateToProps = (state)=>{
 
 };
 
-const mapDispatchToProps = ()=>{
-  return{
+const mapDispatchToProps = (dispatch)=> {
+  return {
+    onDeleteHomeworkQuiz: (data)=> {
+      dispatch({type: 'DELETE_HOMEWORK_QUIZ', data})
 
+    }
   }
 };
 

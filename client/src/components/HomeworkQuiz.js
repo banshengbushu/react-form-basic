@@ -18,8 +18,14 @@ export default class HomeworkQuiz extends Component {
     })
   }
 
+  deleteHomeworkQuiz(sectionIndex, homeworkQuizIndex) {
+    let data = {sectionIndex, homeworkQuizIndex};
+    this.props.onDeleteHomeworkQuiz(data);
+  }
+
   render() {
     const homeworkName = this.state.homeworkName;
+    const {sectionIndex, homeworkQuizIndex} = this.props;
     return (
       <div className='col-md-2 col-xs-4 padding-width'>
         <div className='homework-title'>
@@ -29,7 +35,8 @@ export default class HomeworkQuiz extends Component {
             </h5>
           </div>
           <div className='fa-icon pull-right'>
-            <i className='fa fa-trash-o'> </i>
+            <i className='fa fa-trash-o'
+               onClick={this.deleteHomeworkQuiz.bind(this, sectionIndex, homeworkQuizIndex)}> </i>
           </div>
         </div>
       </div>
