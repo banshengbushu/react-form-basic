@@ -1,4 +1,6 @@
 const editHomework = (data, new_quizzes)=> {
+  console.log('reducer_addHomework_new_quizzes')
+  console.log(new_quizzes)
   let newQuizzes = {quizzes: ["12345"], sectionIndex: 0};
   let newData = Object.assign({}, data,);
   const sectionIndex = newQuizzes.sectionIndex;

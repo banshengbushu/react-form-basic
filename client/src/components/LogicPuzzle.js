@@ -7,13 +7,14 @@ export default class LogicPuzzle extends Component {
 
   editNumber() {
     let quizzes;
-    quizzes = {
-      easy: parseInt(this.easy.value) || 0,
-      normal: parseInt(this.normal.value) || 0,
-      hard: parseInt(this.hard.value) || 0
-    };
+    if (this.inputInfo.checked) {
+      quizzes = {
+        easy: parseInt(this.easy.value) || 0,
+        normal: parseInt(this.normal.value) || 0,
+        hard: parseInt(this.hard.value) || 0
+      };
+    }
     this.props.editLogicPuzzle({quizzes});
-
   }
 
   render() {
@@ -25,7 +26,9 @@ export default class LogicPuzzle extends Component {
               <span className="pull-right">逻辑题</span>
             </div>
             <div className="col-md-6 form-group">
-              <input type="checkBox"/>
+              <input type="checkBox" ref={(ref)=> {
+                this.inputInfo = ref;
+              }}/>
             </div>
           </div>
         </div>

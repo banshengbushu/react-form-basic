@@ -2,6 +2,21 @@ import {Component} from 'react';
 import React from 'react';
 
 export default class PaperInfo extends Component {
+
+  receivePropsData(){
+    this.paperName.value = this.props.paperName || '';
+    this.paperDescription.value = this.props.paperDescription || '';
+  }
+
+  componentDidMount() {
+    this.receivePropsData();
+  }
+
+  componentDidUpdate() {
+    this.receivePropsData();
+  }
+
+
   editPaperName() {
     this.props.editPaper({paperName: this.paperName.value})
   }

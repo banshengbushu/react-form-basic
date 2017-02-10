@@ -9,10 +9,6 @@ import '../../style/index.less'
 
 export default class CreatedPaper extends Component {
 
-  componentWillUnmount() {
-    this.props.initPaperInfo({sections: []});
-  }
-
   componentDidMount() {
     this.props.initPaperInfo({sections: [{quizzes: [], title: '编程题', type: 'LogicPuzzle'}]});
     this.props.initStacks([{stackId:1,title:'Java'},{stackId:2,title:'JavaScript'}]);

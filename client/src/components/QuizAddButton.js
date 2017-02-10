@@ -84,7 +84,7 @@ export default class QuizAddButton extends Component {
     })
   }
 
-  confirmAddHomework(id){
+  confirmAddHomework(){
     this.hideModal();
     let quizzes=[];
     let items = this.state.homeworkList.filter(item=>{
@@ -101,8 +101,7 @@ export default class QuizAddButton extends Component {
 
     this.props.editHomework({
       quizzes,
-      sectionIndex:this.props.sectionIndex,
-      selectedId:this.state.selectedId
+      sectionIndex:this.props.sectionIndex
     })
   }
 

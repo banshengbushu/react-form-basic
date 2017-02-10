@@ -1,6 +1,13 @@
 import {connect} from 'react-redux';
 import PaperInfo from '../components/PaperInfo';
 
+const mapStateToState = ()=>{
+  return {
+    paperName:'',
+    paperDescription:''
+  }
+};
+
 const mapDispatchToProps = (dispatch)=> {
   return {
     editPaper: (data)=> {
@@ -9,6 +16,4 @@ const mapDispatchToProps = (dispatch)=> {
   }
 };
 
-export default connect(()=> {
-  return {}
-}, mapDispatchToProps)(PaperInfo)
+export default connect(mapStateToState, mapDispatchToProps)(PaperInfo)

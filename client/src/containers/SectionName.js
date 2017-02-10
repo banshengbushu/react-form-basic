@@ -8,7 +8,7 @@ const mapDispatchToProps = (dispatch)=> {
       dispatch({type: 'ADD_SECTION_NAME', data})
     }
   }
-}
+};
 
 export default connect(()=> {
   return {};
