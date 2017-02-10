@@ -10,8 +10,10 @@ import '../../style/index.less'
 export default class CreatedPaper extends Component {
 
   componentDidMount() {
-    this.props.initPaperInfo({sections: [{quizzes: [], title: '编程题', type: 'LogicPuzzle'}]});
-    this.props.initStacks([{stackId:1,title:'Java'},{stackId:2,title:'JavaScript'}]);
+    this.props.initPaperInfo({
+      sections: []
+    });
+    this.props.initStacks([{stackId: 1, title: 'Java'}, {stackId: 2, title: 'JavaScript'}]);
   }
 
   render() {

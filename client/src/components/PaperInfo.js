@@ -18,11 +18,11 @@ export default class PaperInfo extends Component {
 
 
   editPaperName() {
-    this.props.editPaper({paperName: this.paperName.value})
+    this.props.editPaper({name: this.paperName.value})
   }
 
   editPaperDescription() {
-    this.props.editPaper({paperDescription: this.paperDescription.value})
+    this.props.editPaper({description: this.paperDescription.value})
   }
 
   render() {

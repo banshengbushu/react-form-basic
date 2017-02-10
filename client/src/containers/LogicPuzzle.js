@@ -7,17 +7,17 @@ function getToggle(paperInfo) {
       return item.type === 'LogicPuzzle';
     }).length > 0
 }
-function getQuizzes(paperInfo) {
+function getDefinition(paperInfo) {
   let result = paperInfo.sections.filter((item) => {
-      return item.type === 'logicQuiz';
+      return item.type === 'LogicPuzzle';
     })[0] || {};
 
-  return result.logicPuzzleInfo || {};
+  return result.definition || {};
 }
 
 const mapStateToProps = ({paperInfo})=>({
   toggleStatus: getToggle(paperInfo),
-  logicPuzzleInfo:getQuizzes(paperInfo)
+  definition: getDefinition(paperInfo)
 });
 
 const mapDispatchToProps = (dispatch) => {

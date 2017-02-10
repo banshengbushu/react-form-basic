@@ -3,18 +3,49 @@ import React from 'react';
 import '../../style/paper-edit.less';
 import '../../style/index.less';
 
+const DifficultySetter = ({text, difficulty, content})=>(
+  <div className="col-sm-3 col-sm-offset-4 easy-input">
+    <span className="col-sm-3">{text}</span>
+    <div className="col-sm-3 no-padding form-group">
+      <input type="number" className="form-control" ref={(ref)=> {
+        content[difficulty] = ref;
+      }} onBlur={content.editNumber.bind(content)}/>
+    </div>
+  </div>
+);
+
+const labels = [
+  {
+    text: '简单',
+    difficulty: 'easy'
+  },
+  {
+    text: '一般',
+    difficulty: 'normal'
+  },
+  {
+    text: '困难',
+    difficulty: 'hard'
+  }
+];
+
+
 export default class LogicPuzzle extends Component {
 
   editNumber() {
-    let quizzes;
+    let definition;
     if (this.inputInfo.checked) {
-      quizzes = {
+      definition = {
         easy: parseInt(this.easy.value) || 0,
         normal: parseInt(this.normal.value) || 0,
         hard: parseInt(this.hard.value) || 0
       };
     }
-    this.props.editLogicPuzzle({quizzes});
+    this.props.editLogicPuzzle({definition});
+  }
+
+  componentDidMount() {
+    this.inputInfo.checked = this.props.toggleStatus;
   }
 
   render() {
@@ -33,30 +64,10 @@ export default class LogicPuzzle extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-sm-3 col-sm-offset-4 easy-input">
-            <span className="col-sm-3">简单</span>
-            <div className="col-sm-3 no-padding form-group">
-              <input type="number" className="form-control" ref={(ref)=> {
-                this.easy = ref
-              }} onBlur={this.editNumber.bind(this)}/>
-            </div>
-          </div>
-          <div className="col-sm-3 number-input">
-            <span className="col-sm-3">一般</span>
-            <div className="col-sm-3 no-padding form-group">
-              <input type="number" className="form-control" ref={(ref)=> {
-                this.normal = ref
-              }} onBlur={this.editNumber.bind(this)}/>
-            </div>
-          </div>
-          <div className="col-sm-3 number-input">
-            <span className="col-sm-3">困难</span>
-            <div className="col-sm-3 no-padding form-group">
-              <input type="number" className="form-control" ref={(ref)=> {
-                this.hard = ref
-              }} onBlur={this.editNumber.bind(this)}/>
-            </div>
-          </div>
+          {labels.map((label, index)=>(
+            <DifficultySetter key={index} {...label} content={this} disabled={!this.props.toggleStatus}/>
+          ))
+          }
         </div>
         <div className="paper-border">
         </div>

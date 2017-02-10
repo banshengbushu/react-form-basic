@@ -3,8 +3,8 @@ import PaperInfo from '../components/PaperInfo';
 
 const mapStateToState = ()=>{
   return {
-    paperName:'',
-    paperDescription:''
+    name:'',
+    description:''
   }
 };
 
