@@ -7,9 +7,10 @@ import HomeworkQuizzes from './HomeworkQuizzes';
 export default class Section extends Component {
   render() {
     return (
+
       <div>
-        <SectionName sectionIndex={this.props.index}/>
-        <HomeworkQuizzes sectionIndex={this.props.index} homeworkQuizzes={this.props.quizzes}/>
+        <SectionName title={this.props.title} sectionIndex={this.props.index}/>
+        <HomeworkQuizzes sectionIndex={this.props.index} homeworkQuizzes={this.props.definition.quizzes}/>
         <QuizAddButton sectionIndex={this.props.index}/>
       </div>
     );

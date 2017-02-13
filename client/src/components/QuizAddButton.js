@@ -8,9 +8,7 @@ export default class QuizAddButton extends Component {
     super(props);
     this.state = {
       show: false,
-      selectedId:'',
       homeworkList: [],
-      homeworkTypes: [{activeStatus: 'active', title: '全部', stackId: null}]
     }
   }
 
@@ -20,19 +18,13 @@ export default class QuizAddButton extends Component {
     }, ()=> {
       this.setState({
         homeworkList: [{
-          checked: '',
-          homeworkName: 'homework1',
-          stackId: 1,
-          makerName: 'maker1',
-          createTime: '2017-2-3',
-          id: '1'
+          title: 'react',
+          stack: "Javascript",
+          _id: '12345'
         }, {
-          checked: '',
-          homeworkName: 'homework2',
-          stackId: 2,
-          makerName: 'maker1',
-          createTime: '2017-2-3',
-          id: '2'
+          title: 'jersey',
+          stack: "Java+Gradle",
+          _id: '12346'
         }]
       })
     })
@@ -44,55 +36,30 @@ export default class QuizAddButton extends Component {
     })
   }
 
-  componentDidMount() {
-    const stacks = [{activeStatus: '', title: 'Java', stackId: 1}, {activeStatus: '', title: 'JavaScript', stackId: 2}];
-    let homeworkTypes = this.state.homeworkTypes.concat(stacks);
-    this.setState({
-      homeworkTypes
-    })
-  }
-
-  changeType(index) {
-    const homeworkTypes = this.state.homeworkTypes.map((item, i)=> {
-      i === index ? item.activeStatus = 'active' : item.activeStatus = '';
-      return item;
-    });
-    const stackId = this.state.homeworkTypes.find(item => item.activeStatus === 'active').stackId;
-
-    const homeworkList = this.props.stacks.filter(stack=>stack.stackId === stackId );
-    this.setState({
-      homeworkTypes
-    }, ()=> {
-      this.setState({
-        homeworkList
-      })
-    })
-  }
-
   selectHomework(e) {
-
     const selectedId = e.target.value;
     const checked = e.target.checked;
     const homeworkList = this.state.homeworkList.map((item)=> {
       return Object.assign({}, item, {
-        checked: item.id === selectedId ? checked : item.checked
+        checked: item._id === selectedId ? checked : item.checked
       });
     });
     this.setState({
-      homeworkList,
-      selectedId
+      homeworkList
     })
   }
 
-  confirmAddHomework(){
+  confirmAddHomework() {
     this.hideModal();
-    let quizzes=[];
-    let items = this.state.homeworkList.filter(item=>{
-     return item.checked === true;
+
+    let quizzes = [];
+    let items = this.state.homeworkList.filter(item=> {
+      return item.checked === true;
     });
-    items.forEach((item)=>{
-      if(item.checked && item.disabled === false){
-        let id = item.id;
+
+    items.forEach((item)=> {
+      if (item.checked) {
+        let id = item._id;
         quizzes.push({
           id
         })
@@ -101,34 +68,23 @@ export default class QuizAddButton extends Component {
 
     this.props.editHomework({
       quizzes,
-      sectionIndex:this.props.sectionIndex
+      sectionIndex: this.props.sectionIndex
     })
   }
 
   render() {
-
-    let homeworkTypeList = this.state.homeworkTypes.map((item, index) => {
-      return <li role='presentation' key={index}
-                 className={item.activeStatus}>
-        <a onClick={this.changeType.bind(this, index)}>{item.title}</a>
-      </li>;
-    });
-
     const homeworkList = this.state.homeworkList || [];
-    let homeworkListHTML = homeworkList.map(({checked, disabled, homeworkName, stackId, makerName, createTime, id}, index)=> {
-      const title = this.state.homeworkTypes.find(item=>item.stackId === stackId).title;
+    let homeworkListHTML = homeworkList.map(({checked, disabled, title, stack, _id}, index)=> {
       return (
         <tr key={index}>
           <th scope="row">
             <input disabled={disabled}
                    type='checkbox' name='homework'
-                   value={id}
+                   value={_id}
                    checked={checked} onChange={this.selectHomework.bind(this)}/>
           </th>
-          <td> {homeworkName}</td>
           <td> {title}</td>
-          <td> {makerName}</td>
-          <td>{createTime}</td>
+          <td> {stack}</td>
         </tr>
       )
     });
@@ -144,19 +100,12 @@ export default class QuizAddButton extends Component {
           </Modal.Header>
           <Modal.Body>
             <div>
-              <ul className='nav nav-tabs' role='tablist'>
-                {homeworkTypeList}
-              </ul>
-            </div>
-            <div>
               <table className='table table-striped table-bordered table-hover'>
                 <thead>
                 <tr className='form-title'>
                   <th></th>
                   <th className='sorting'> 题目名称</th>
-                  <th className='sorting'> 题目类型</th>
-                  <th className='sorting'> 创建者</th>
-                  <th className='sorting'> 创建时间</th>
+                  <th className='sorting'> 技术栈</th>
                 </tr>
                 </thead>
                 <tbody>

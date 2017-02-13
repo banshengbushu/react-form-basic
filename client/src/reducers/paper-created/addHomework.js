@@ -1,15 +1,12 @@
-const editHomework = (data, new_quizzes)=> {
-  console.log('reducer_addHomework_new_quizzes')
-  console.log(new_quizzes)
-  let newQuizzes = {quizzes: ["12345"], sectionIndex: 0};
-  let newData = Object.assign({}, data,);
+const addHomework = (data, newQuizzes)=> {
+  let newData = Object.assign({}, data);
   const sectionIndex = newQuizzes.sectionIndex;
 
   let rowSection = newData.sections.filter(section => section.type === 'homeworkQuiz');
-  let quizzes = rowSection[sectionIndex].quizzes.concat(newQuizzes.quizzes);
+  let quizzes = rowSection[sectionIndex].definition.quizzes.concat(newQuizzes.quizzes);
 
-  rowSection[sectionIndex].quizzes = quizzes;
+  rowSection[sectionIndex].definition.quizzes = quizzes;
   return newData;
 };
 
-export default editHomework;
+export default addHomework;

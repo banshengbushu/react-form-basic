@@ -3,18 +3,19 @@ import React from 'react';
 import '../../style/paper-edit.less'
 
 export default class HomeworkQuiz extends Component {
+
   constructor(props) {
     super(props);
     this.state = ({
-      homeworkName: ''
-    })
-  }
-
-  componentDidMount() {
-    const homeworkQuizIndex = this.props.homeworkQuizIndex;
-    const homeworkName = this.props.stacks.find((item)=>parseInt(homeworkQuizIndex) + 1 === item.stackId).title;
-    this.setState({
-      homeworkName
+      homeworkList: [{
+        title: 'react',
+        stack: "Javascript",
+        _id: '12345'
+      }, {
+        title: 'jersey',
+        stack: "Java+Gradle",
+        _id: '12346'
+      }]
     })
   }
 
@@ -24,7 +25,7 @@ export default class HomeworkQuiz extends Component {
   }
 
   render() {
-    const homeworkName = this.state.homeworkName;
+    const homeworkName = this.state.homeworkList.find(item=>item._id === this.props.id).title;
     const {sectionIndex, homeworkQuizIndex} = this.props;
     return (
       <div className='col-md-2 col-xs-4 padding-width'>

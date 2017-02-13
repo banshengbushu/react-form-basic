@@ -13,7 +13,6 @@ export default class CreatedPaper extends Component {
     this.props.initPaperInfo({
       sections: []
     });
-    this.props.initStacks([{stackId: 1, title: 'Java'}, {stackId: 2, title: 'JavaScript'}]);
   }
 
   render() {

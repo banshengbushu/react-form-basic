@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import HomeworkQuiz from '../components/HomeworkQuiz';
 
 const mapStateToProps = (state)=> {
-  return {stacks: state.stacks, paperInfo: state.paperInfo};
+  return {paperInfo: state.paperInfo};
 };
 
 const mapDispatchToProps = (dispatch)=> {

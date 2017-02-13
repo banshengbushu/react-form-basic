@@ -14,6 +14,7 @@ export default class HomeworkQuizzes extends Component {
               sectionIndex,
               homeworkQuizIndex: index
             });
+
             return <HomeworkQuiz key={index} {...data}/>
           })
         }
